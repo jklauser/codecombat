@@ -409,8 +409,8 @@ dungeon = [
     id: 'crawlways-of-kithgard'
     original: '545287ef57e83800009730d5'
     description: 'Dart in and grab the gem–at the right moment.'
-    x: 36.48
-    y: 29.03
+    x: 44.57
+    y: 34.63
     nextLevels:
       continue: 'forgetful-gemsmith'
     practice: true
