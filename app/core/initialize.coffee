@@ -1,5 +1,5 @@
 Backbone.Mediator.setValidationEnabled false
-app = require 'core/application'
+app = null
 
 channelSchemas =
   'auth': require 'schemas/subscriptions/auth'
@@ -21,6 +21,14 @@ definitionSchemas =
   'misc': require 'schemas/definitions/misc'
 
 init = ->
+  if not window.userObject._id
+    $.ajax('/auth/whoami', {success: (res) ->
+      window.userObject = res
+      init()
+    })
+    return
+
+  app = require 'core/application'
   setupConsoleLogging()
   watchForErrors()
   setUpIOSLogging()
